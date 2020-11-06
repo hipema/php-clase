@@ -5,7 +5,7 @@ if ((time() - $_SESSION['horaInicio']) > 10){
     unset($_SESSION['horaInicio']);
     session_destroy();
     session_start();
-    session_regenerate_id();
+    session_regenerate_id(true);
 } else {
     if (empty($_SESSION['count'])){
         $_SESSION['count'] = 1;

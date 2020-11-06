@@ -1,24 +1,22 @@
 <?php
 session_start();
-
+if ((time() - $_SESSION['horaInicio']) > 10){
+    unset($_SESSION['count']);
+    unset($_SESSION['horaInicio']);
+    session_destroy();
+    session_start();
+    session_regenerate_id();
+} else {
+    if (empty($_SESSION['count'])){
+        $_SESSION['count'] = 1;
+    } else {
+        $_SESSION['count']++;
+        $_SESSION['horaInicio'] = time();
+    }
+}
 if (!isset($_SESSION['horaInicio'])) {
     $_SESSION['horaInicio'] = time();
-    $_SESSION['count'] = 1;
-} else {
-    if ((time() - $_SESSION['horaInicio']) > 10){
-        unset($_SESSION['count']);
-        unset($_SESSION['horaInicio']);
-        session_destroy();
-        session_start();
-        session_regenerate_id();
-    } else {
-        if (empty($_SESSION['count'])){
-            $_SESSION['count'] = 1;
-        } else {
-            $_SESSION['count']++;
-            $_SESSION['horaInicio'] = time();
-        }
-    }
+    $_SESSION['count'] = 0;
 }
 
 ?>
@@ -37,6 +35,7 @@ if (!isset($_SESSION['horaInicio'])) {
         <div>
     <?php
         echo '<p>'.$_SESSION['count'].'</p>';
+        echo var_dump($_SESSION['count']);
         echo "<a href=\"prueba03.php?".htmlspecialchars(SID)."\">Continuar</a>";
     ?>
         </div>

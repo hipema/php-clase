@@ -35,7 +35,6 @@ if (!isset($_SESSION['horaInicio'])) {
         <div>
     <?php
         echo '<p>'.$_SESSION['count'].'</p>';
-        echo var_dump($_SESSION['count']);
         echo "<a href=\"prueba03.php?".htmlspecialchars(SID)."\">Continuar</a>";
     ?>
         </div>

@@ -1,0 +1,43 @@
+.contenedor {
+    display: flex;
+}
+
+.principal {
+    width: 75%;
+}
+
+.celdaNoVisible {
+    text-align: center;
+    font-size: 45px;
+    display: inline-block;
+    background-color: blueviolet;
+    color: white;
+    margin: 2px;
+    width: 75px;
+    height: 75px;
+}
+
+.celdaVisible {
+    text-align: center;
+    font-size: 45px;
+    display: inline-block;
+    background-color: red;
+    color: white;
+    margin: 2px;
+    width: 75px;
+    height: 75px;
+}
+
+.noVisible {
+    width: 45px;
+    height: 45px;
+}
+.visible {
+    background-color: azure;
+    width: 45px;
+    height: 45px;
+}
+
+.opciones {
+    margin-bottom: 20px;
+}

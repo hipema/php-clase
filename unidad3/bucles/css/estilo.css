@@ -1,6 +1,30 @@
-#par {
-    background-color: grey;
+body {
+    width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.5rem;
 }
-#impar {
+
+.sombreado {
     background-color: lightslategray;
+}
+
+table {
+    display: inline;
+}
+
+td {
+    padding: 10px;
+}
+
+.festivo {
+    background-color: red;
+}
+
+.festivoProvincial {
+    background-color: green;
+}
+
+.festivoLocal {
+    background-color: greenyellow;
 }

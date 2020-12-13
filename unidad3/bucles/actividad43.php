@@ -17,35 +17,22 @@
     <title>Ejercicio 3</title>
 </head>
 <body>
-    <h1>Ejercicio 3. </h1>
-    <p>Tabla de multiplicar del 1 al 10.</p>
+    <h1>Ejercicio 3.</h1>
+    <p><h2>Tabla de multiplicar del 1 al 10.</h2></p>
     <table>
-    <tr><th>Número 1</th>
-    <th>Número 2</th>
-    <th>Resultado</th>
-    </tr>
     <?php
-    $numero1 = 1;
-    $numero2 = 1;
-    do {
-        $estilo;
-        if ($numero2%2 == 0){
-            $estilo = 'par';
-        } else {
-            $estilo = 'impar';
+    for ($fila = 1; $fila <= 10; $fila++){
+        echo '<tr>';
+        for ($columna = 1; $columna <= 10; $columna++){
+            if ($fila == 1 || $columna == 1){
+                echo '<td class="sombreado">'.($fila * $columna).'</td>';
+            } else {
+                echo '<td>'.($fila * $columna).'</td>';
+            }
         }
-        echo '<tr id="'.$estilo.'"><td>'.$numero1.'</td>';
-        echo '<td>'.$numero2.'</td>';
-        echo '<td>'.$numero1*$numero2.'</td></tr>';
-        $numero2++;
-    } while ($numero2 <= 10);
+        echo '</tr>';
+    }
     ?>
     </table>
 </body>
 </html>
-
-<!--
-    Tabla de multiplicar
-    ====================
-
-    

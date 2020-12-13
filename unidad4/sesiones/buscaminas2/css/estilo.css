@@ -1,0 +1,102 @@
+body {
+    width: 80%;
+    margin: 20px auto;
+    font-family: 'Roboto', sans-serif;
+    font-weight: lighter;
+    font-size: 1rem;
+}
+
+header {
+    text-align: center;
+    padding: 10px;
+}
+
+header > img {
+    width: 50%;
+}
+
+nav {
+    background-color: #343a40;
+    padding: 5px;
+    color: white;
+    text-align: center;
+}
+
+h2 {
+    color: #f8f9fa;
+    margin: 0px;
+}
+
+.ejercicio {
+    background-color: gainsboro;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.contenedor{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    text-align: center;
+}
+
+table {
+    display: inline;
+}
+
+td {
+    width: 45px;
+    height: 45px;
+    background-color: ghostwhite;
+}
+.oculto {
+    width: 45px;
+    height: 45px;
+    background-color: aliceblue;
+}
+
+.bandera {
+    width: 45px;
+    height: 45px;
+    background-color: blue;
+}
+
+.error {
+    background-color: red;
+}
+
+footer {
+    background-color: #343a40;
+    padding: 5px;
+    color: white;
+    text-align: center;
+}
+.redes div {
+    grid-row: 1 / 2;
+}
+
+.redes {
+    display: inline-grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 50%;
+    align-self: center;
+}
+
+.redes > div {
+    text-align: center;
+    font-size: 48px;
+    margin: 5px;
+}
+
+.redes  a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.fa {
+    display: block;
+}
+
+.redesNombre {
+    display: block;
+    font-size: 14px;
+}

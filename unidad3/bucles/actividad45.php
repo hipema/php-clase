@@ -1,142 +1,111 @@
 <?php
-// Bloque de documentación
-/**
- * Ejercicio 5
- * Calendario
- * 
- * dia = 1
- * mes = 10
- * año = 2020
- * 
- * dia de la semana?
- * 
- * for i = 1  < ndias
- *      donde empiezo
- *      donde salto
- * 
- * L   M   X   J   V   S   D
- *                 1   2   3
- * 4   5   6   7   8   9  10
- * 11 12  13  14  15  16  17
- * 
- * author: manolohidalgo_
- * date: 29-09-2020
- */
+$diaActual = new DateTime(date('d.m.Y'));
+$dia = $diaActual->format('d');
+$mes = $diaActual->format('m');
+$anyo = $diaActual->format('Y');
+$diaSemana = $diaActual->format('w');
+$diasMes = $diaActual->format('t');
 
-    // Iniciación variables
-    $diaActual = new DateTime(date('d.m.Y'));
-    $dia = $diaActual->format('d');
-    $mes = $diaActual->format('m');
-    $anyo = $diaActual->format('Y');
-    $mesLetra;
-    $dias;
-    $diaUno = $diaActual;
-    date_date_set($diaUno, $anyo, $mes, 1);
-    $diaUnoSemana = $diaUno->format('w');
+$festNacionales = array ("Enero" => [1, 6], "Febrero" => [], "Marzo" => [], "Abril" => [],
+                         "Mayo" => [1], "Junio" => [], "Julio" => [], "Agosto" => [15],
+                         "Septiembre" => [], "Octubre" => [12], "Noviembre" => [1], "Diciembre" => [6, 8, 25]);
+$festProvinciales = array ("Enero" => [], "Febrero" => [28], "Marzo" => [], "Abril" => [],
+                           "Mayo" => [], "Junio" => [], "Julio" => [], "Agosto" => [],
+                           "Septiembre" => [], "Octubre" => [], "Noviembre" => [], "Diciembre" => []);
+$festLocal = array("Enero" => [], "Febrero" => [], "Marzo" => [], "Abril" => [],
+                   "Mayo" => [], "Junio" => [], "Julio" => [], "Agosto" => [],
+                   "Septiembre" => [], "Octubre" => [24], "Noviembre" => [], "Diciembre" => []);
 
-    // Convertimos dia de la semana para empezar con el lunes a 1 y acabar domingo a 7.
-    if ($diaUnoSemanaa == 0) {
-        $diaUnoSemana = 7;
+function obtenerMesLetra($mes){
+    $arrayMes = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+    return $arrayMes[$mes-1];
+}
+
+function primerDiaMes($mes, $anyo){
+    $fecha = new DateTime();
+    $fecha->setDate($anyo, $mes, 1);
+    $fecha->format('w');
+    if ($fecha->format('w') == 0){
+        return 6;
+    } else {
+        return $fecha->format('w')-1;
     }
+}
 
-    // Conversión de mes a Letra
-    switch ($mes){
-        case 1:
-            $mesLetra = 'Enero';
-        break;
-        case 2:
-            $mesLetra = 'Febrero';
-        break;
-        case 3:
-            $mesLetra = 'Marzo';
-        break;
-        case 4:
-            $mesLetra = 'Abril';
-        break;
-        case 5:
-            $mesLetra = 'Mayo';
-        break;
-        case 6:
-            $mesLetra = 'Junio';
-        break;
-        case 7:
-            $mesLetra = 'Julio';
-        break;
-        case 8:
-            $mesLetra = 'Agosto';
-        break;
-        case 9:
-            $mesLetra = 'Septiembre';
-        break;
-        case 10:
-            $mesLetra = 'Octubre';
-        break;
-        case 11:
-            $mesLetra = 'Noviembre';
-        break;
-        case 12:
-            $mesLetra = 'Diciembre';
-        break;
-    }
-
-    // Cálculo del número de días del mes
-    if ($mes == 1 || $mes == 3 || $mes == 5 || $mes == 7 || $mes == 8 || $mes ==10 || $mes == 12){
-        $dias = 31;
-    } elseif ($mes == 4 || $mes == 6 || $mes == 9 || $mes == 11){
-        $dias = 30;
-    } elseif ($mes == 2){
-         // Calculamos si el año es bisiesto
-        if ($year % 400 == 0){
-            $bisiesto = true;
-        }else if ($year % 100 == 0){
-            $bisiesto = false;
-        }else if ($year % 4 == 0){
-            $bisiesto = true;
-        }else{
-            $bisiesto = false;
-        }
-        if ($bisiesto){
-            $dias = 29;
-        } else {
-            $dias = 28;
-        }
-    }
-
-    
-    ?>
+?>
 
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="manolohidalgo_"/>
     <link rel="stylesheet" href="css/estilo.css">
-    <title>Ejercicio 5</title>
+    <title>Manolo Hidalgo - 2º DAW</title>
 </head>
 <body>
-    <h1>Ejercicio 5.</h1>
-    <p>Calendario</p>
-    <table>
-        <?php
-            echo '<th colspan=7>'.$mesLetra.' de '.$anyo.'</th>'; 
-        ?>
-    </tr>
     <?php
-    // echo $diaSemanaDelUno;
-    // echo $dia.'</br>';
-    // echo date_format($diaActual, 'd/m/Y').'</br>';
-    // echo $dias.'</br>';
-    // echo date_format($diaUno, 'd/m/Y').'</br>';
-    // echo $diaUnoSemana.'</br>';
-    for ($i = 1; $i<= 7; $i++){
-        if ($i == $diaUnoSemana){
-            echo '<td>'.$diaUno.'</td>';
-            $diaUnoSemana++;
-        } else {
-            echo '<td></td>';
-        }
-    }
+        echo '<h1>Calendario</h1><h2>Día actual: '.$dia.' '.obtenerMesLetra($mes).' '.$anyo.'</h2><br>';
     ?>
-    </table>
+    <table>
+        <tr>
+            <th>L</th>
+            <th>M</th>
+            <th>X</th>
+            <th>J</th>
+            <th>V</th>
+            <th>S</th>
+            <th>D</th>
+        </tr>
+        <?php
+            $primerDia = primerDiaMes($mes, $anyo);
+            $imprimirDia = 1;
+            $festivosMes = $festNacionales[obtenerMesLetra($mes)];
+            $festProMes = $festProvinciales[obtenerMesLetra($mes)];
+            $festLocMes = $festLocal[obtenerMesLetra($mes)];
+            do{
+                for ($j=0; $j < 7; $j++){
+                    if ($imprimirDia <= $diasMes){
+                        if ($primerDia != 0){
+                            $primerDia--;
+                            if ($j == 0) {
+                                echo '<tr><td></td>';
+                            }else {
+                                echo '<td></td>';
+                            }
+                        } else {
+                            if ($j == 6){
+                                echo '<td class="sombreado">'.$imprimirDia.'</td></tr>';
+                            }else if ($j == 0) {
+                                if (in_array($imprimirDia, $festivosMes)) {
+                                    echo '<tr><td class="festivo">'.$imprimirDia.'</td>';
+                                } else if (in_array($imprimirDia, $festProMes)){
+                                    echo '<tr><td class="festivoProvincial">'.$imprimirDia.'</td>';
+                                } else if (in_array($imprimirDia, $festLocMes)){
+                                    echo '<tr><td class="festivoLocal">'.$imprimirDia.'</td>';
+                                } else {
+                                    echo '<tr><td>'.$imprimirDia.'</td>';
+                                }
+                            } else {
+                                if (in_array($imprimirDia, $festivosMes)) {
+                                    echo '<td class="festivo">'.$imprimirDia.'</td>';
+                                } else if (in_array($imprimirDia, $festProMes)){
+                                    echo '<td class="festivoProvincial">'.$imprimirDia.'</td>';
+                                } else if (in_array($imprimirDia, $festLocMes)){
+                                    echo '<td class="festivoLocal">'.$imprimirDia.'</td>';
+                                } else {
+                                    echo '<td>'.$imprimirDia.'</td>';
+                                }
+                            }
+                            $imprimirDia++;
+                        }
+                    }
+                }
+            } while ($imprimirDia < $diasMes);
+        ?>
+        
+        <tr>
+
+    
 </body>
 </html>

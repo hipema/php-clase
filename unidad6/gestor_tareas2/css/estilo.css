@@ -1,0 +1,412 @@
+/* Colores */
+:root{
+    --primary-color:  #343a40;
+    --secondary-color: #61666b;
+}
+
+body {
+    color: var(--primary-color);
+}
+/* Menú original */
+#barra-menu {
+    display:none;
+}
+
+nav ul {
+	overflow:hidden;
+    list-style:none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+ 
+nav ul li {
+    display: inline-block;
+}
+ 
+nav ul li a {
+	color:#fff;
+	padding:10px;
+    display:block;
+    font-weight: bold;
+	text-decoration:none;
+}
+ 
+nav ul li span {
+	margin-right:10px;
+}
+ 
+nav ul li a:hover {
+	background: var(--secondary-color);
+}
+ 
+/* fin Menu */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: lighter;
+    font-size: 1rem;
+}
+
+header {
+    width: 80%;
+    text-align: center;
+    padding: 10px;
+    margin: auto;
+}
+
+.img-cabecera {
+    width: 90%;
+}
+
+nav {
+    background-color: var(--primary-color);
+    z-index: 1;
+}
+
+main {
+    margin-top: 20px;
+}
+
+h2 {
+    text-align: center;
+    margin: 0px;
+}
+
+.resumen {
+    width: 80%;
+    display: none;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+    grid-gap: 5px;
+    padding-top: 10px;
+    margin:auto;
+}
+
+.seccion-anadir {
+    width: 80%;
+    margin: auto;
+}
+
+.seccion-tarea {
+    width: 80%;
+}
+#infoTarea {
+    margin:20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#seccionAnadir {
+    display: none;
+}
+
+.caja-dwes, .caja-dwec, .caja-hlc, .caja-daw, .caja-eie, .caja-diw {
+    border: var(--primary-color) solid 1p;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    min-height: 225px;
+}
+
+section {
+    box-shadow: 0 0 10px black, 0 0 10px gainsboro;
+    border-radius: 10px;
+    margin: 20px;
+    width: 80%;
+    margin: 20px auto;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+footer {
+    background-color: var(--primary-color);
+    padding: 5px;
+    color: white;
+    text-align: center;
+}
+.redes div {
+    grid-row: 1 / 2;
+}
+
+.redes {
+    display: inline-grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 50%;
+    justify-content: center;
+}
+
+.redes > div {
+    text-align: center;
+    font-size: 48px;
+    margin: 5px;
+}
+
+.redes  a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.fa {
+    display: block;
+}
+
+.redesNombre {
+    display: block;
+    font-size: 14px;
+}
+
+
+/* Efectos Botones iniciales */
+.cuadro-resumen {
+    display: grid;
+    align-content: center;
+    font-weight: bold;
+    font-size: 2rem;
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+    transition-property: color;
+    transition-duration: 0.3s;
+    border: var(--primary-color) solid 1px;
+    border-radius: 10px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    height: 125px;
+    max-width: 125px;
+  }
+  .cuadro-resumen:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    backdrop-filter: brightness(80%);
+    -webkit-backdrop-filter: brightness(80%);
+    -moz-backdrop-filter: brightness(80%);
+    transform: scaleX(0);
+    transform-origin: 50%;
+    transition-property: transform;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+    border-radius: 10px;
+  }
+  .cuadro-resumen:hover, .cuadro-resumen:focus, .cuadro-resumen:active {
+    color: white;
+  }
+  .cuadro-resumen:hover:before, .cuadro-resumen:focus:before, .cuadro-resumen:active:before {
+    transform: scaleX(1);
+  }
+
+  .asignatura {
+      font-size: 0.8rem;
+  }
+
+  .uno {
+      background: #fbec00;
+  }
+  
+  .dos {
+      background: #009bdb;
+  }
+
+  .tres {
+      background: #ba007c;
+  }
+
+  .cuatro {
+      background: #70a63b;
+  }
+
+  .cinco {
+      background: #ff5100;
+  }
+
+  .seis {
+      background: #bb9d6c;
+  }
+
+  form {
+      margin: 20px;
+      margin-bottom: 0;
+  }
+
+  form div {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  label, .tareaApartado {
+      font-weight: bold;
+  }
+
+  textarea {
+      width: 99%;
+  }
+
+  #idTitulo {
+      width: 83%;
+  }
+
+  .anadir {
+      text-align: center;
+      margin-top: 10px;
+  }
+
+.listado {
+    display:none;
+    padding-top: 10px;
+}
+
+.listado article {
+  display: grid;
+  padding: 20px;
+  grid-template-areas: "fecha modulo"
+                       "descripcion descripcion"
+                       "opciones opciones";
+}
+
+.listado a {
+    text-decoration: none;
+}
+
+.enlace-listado {
+    grid-area: descripcion;
+    color: black;
+    text-align: justify;
+}
+.enlace-fecha {
+    grid-area: fecha;
+    color: black;
+    font-weight: bold;
+}
+.enlace-modulo {
+    grid-area: modulo;
+    color: black;
+    font-weight: bold;
+}
+
+.opciones {
+    grid-area: opciones;
+    text-align: end;
+}
+
+h3 {
+    display: inline;
+}
+
+.borrar {
+  color: red;
+  font-size: 24px;
+}
+
+.marcar-completado {
+    color: green;
+    font-size: 24px;
+}
+
+.verMas {
+    color: blue;
+    font-size: 24px;
+}
+
+.edit {
+    color: gray;
+    font-size: 24px;
+}
+
+.listado article:nth-child(2n+1) {
+  background-color:ghostwhite;
+}
+
+#iResumen, #iAnadir, #iLista {
+    transform: rotate(0deg);
+}
+
+#idTitulo:focus:valid{
+    border: 1px solid green;
+}
+
+#idTitulo:focus:invalid {
+    border: 1px solid red;
+}
+
+.confirmar {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    text-align: center;
+    max-width: 275px;
+    margin: auto;
+}
+
+.confirmar input{
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    width: 75px;
+    height: 75px;
+}
+
+/* Modificaciones para responsive */
+
+/* Menú para móvil */
+@media screen and (max-width:800px ) {
+	nav {
+		width:50%;
+		left:-100%;
+		margin:0;
+		position: absolute;
+	}
+ 
+	nav ul li {
+		display:block;
+		float:none;
+		border-bottom:1px solid rgba(255,255,255, .3);
+	}
+ 
+	#barra-menu {
+		display:block;
+		width:100%;
+		background: var(--primary-color);
+	}
+ 
+	#barra-menu .bt-menu {
+		display:block;
+		padding:5px;
+		background:var(--primary-color);
+		color:#fff;
+		text-decoration:none;
+		font-weight: bold;
+		font-size:25px;
+		-webkit-box-sizing:border-box;
+		-moz-box-sizing:border-box;
+        box-sizing:border-box;
+        margin-left: 10%;
+	}
+ 
+	/* #barra-menu span {
+		float:right;
+		font-size:40px;
+	} */
+}
+@media screen and (min-width:800px){
+    .resumen, #seccionAnadir, .listado {
+        display:grid;
+    }
+
+    .resumen {
+        grid-template-columns: repeat(6, 1fr);
+        width: 95%;
+        text-align: center;
+    }
+
+    .listado article {
+        grid-template-areas: "fecha modulo opciones"
+                             "descripcion descripcion descripcion";
+    }
+    
+    #iResumen, #iAnadir, #iLista {
+        transform: rotate(90deg);
+    }
+}

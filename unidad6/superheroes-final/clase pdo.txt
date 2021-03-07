@@ -1,0 +1,6 @@
+PDO {
+    public __construct (string $dsn [, string $username [, string $password [, array $options]]])
+    public beg
+}
+
+$dsn -> lleva host y nombre base de datos

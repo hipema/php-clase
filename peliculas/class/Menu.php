@@ -6,8 +6,10 @@ class Menu {
     }
 
     public function muestraMenuUsuario($rol){ 
-        foreach ($this->_menu[$rol] as $key => $value) {
-            echo '<h4><a href="index.php?'.$value.'">'.$key.'</a></h4>';
-        }
+        if ($rol != null){
+            foreach ($this->_menu[$rol] as $key => $value) {
+                echo '<h4><a href="index.php?'.$value.'">'.$key.'</a></h4>';
+            } 
+        }   
     }
 } 
